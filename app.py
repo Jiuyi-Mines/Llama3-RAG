@@ -13,11 +13,10 @@ st.set_page_config(
     page_title="Groq RAG",
     page_icon=":orange_heart:",
 )
-st.title("迪哥的Agent之Rag")
-st.markdown("##### :orange_heart: 这个案例演示llama3应用与向量化检索")
-st.markdown("##### :orange_heart: 由于llama3支持中文一般，尽量用英文先")
+st.title("LLAMA3's RAG")
+st.markdown("##### :orange_heart: This example shows RAG using Embedding Retrieval.")
+st.markdown("##### :orange_heart: Please keep using English in our demo!!!")
 
-# Groq API key: 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
 def restart_assistant():
     st.session_state["rag_assistant"] = None
     st.session_state["rag_assistant_run_id"] = None
@@ -29,7 +28,7 @@ def restart_assistant():
 
 
 def main() -> None:
-    # Get LLM model,可以选人家提供好的模型
+    # Get LLM model
     llm_model = st.sidebar.selectbox("Select LLM", options=["llama3-70b-8192", "llama3-8b-8192", "mixtral-8x7b-32768"])
     # Set assistant_type in session state
     if "llm_model" not in st.session_state:
@@ -39,7 +38,7 @@ def main() -> None:
         st.session_state["llm_model"] = llm_model
         restart_assistant()
 
-    # Get Embeddings model，第一个是ollama里面现成的 直接就可以装 还可以选huggingface的 或者 openai的
+    # Get Embeddings model
     embeddings_model = st.sidebar.selectbox(
         "Select Embeddings",
         options=["nomic-embed-text", "text-embedding-3-small"],
@@ -54,7 +53,7 @@ def main() -> None:
         st.session_state["embeddings_model_updated"] = True
         restart_assistant()
 
-    # Get the assistant PHIDATA这个包都提供好了
+    # Get the assistant which is provided by phidata
     rag_assistant: Assistant
     if "rag_assistant" not in st.session_state or st.session_state["rag_assistant"] is None:
         logger.info(f"---*--- Creating {llm_model} Assistant ---*---")
