@@ -1,4 +1,4 @@
-## Llama3
+## Llama3 - RAG
 This project includes a simple example of Llama3's RAG.
 
 ### Environment Configuration
