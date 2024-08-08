@@ -8,6 +8,7 @@ from phi.embedder.ollama import OllamaEmbedder
 from phi.vectordb.pgvector import PgVector2
 from phi.storage.assistant.postgres import PgAssistantStorage
 
+# Do not change this url because it is default.
 db_url = "postgresql+psycopg://ai:ai@localhost:5532/ai"
 
 
